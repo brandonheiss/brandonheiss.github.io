@@ -1,0 +1,67 @@
+html {
+	background: url("fuuud.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	min-height: 100%;
+	min-width: 100%;
+}
+
+#title {
+	color: white;
+	text-align: center;
+	font-size: 3em;
+	margin-top: 200px;
+	font-family: Georgia, serif;
+}
+
+#name {
+	color: white;
+	text-align: center;
+	font-size: 2em;
+	margin-top: 200px;
+	font-family: Georgia, serif;
+
+}
+
+#street {
+	color: white;
+	text-align: center;
+	font-size: 1em;
+	margin-bottom: 20px;
+	font-family: Georgia, serif;
+}
+
+#location, #error {
+	color: white;
+	text-align: center;
+	font-size: 1em;
+	font-family: Georgia, serif;
+	text-decoration: underline;
+}
+
+.search {
+	text-align: center;
+	font-size: 2em;
+	margin: auto;
+	margin-top: 0.5em;
+	display: block;
+	color: gray;
+	background-color: white;
+	border-radius: 20px;
+	font-family: Georgia, serif;
+	width: 230px
+}
+
+.display {
+	text-align: center;
+	font-size: 1.5em;
+	margin: auto;
+	margin-top: 1em;
+	display: block;
+	color: gray;
+	background-color: white;
+	border-radius: 20px;
+	font-family: Georgia, serif;
+	width: 180px;
+}

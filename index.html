@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="stylesheet" type="text/css" href="styles/hungry.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script>
+		$.getJSON('https://ipapi.co/json/', function(data) {
+			document.getElementById("data").innerHTML =
+					"Your Current ISP Information:" + '<br>' +
+					'<br>' + '<br>' +
+					"Location:   " + data.city + ', ' + data.region + '<br>' +
+					"Coordinates:   " + data.latitude + ", " + data.longitude + '<br>' +
+					'<br>' +
+					"IP Address:   " + data.ip + '<br>' +
+					"Organization:   " + data.org + '<br>';
+
+		});
+
+		setTimeout(function(){window.location.href = 'scroll.html';}, 11500);
+		let timeLeft = 10;
+		let downloadTimer = setInterval(function(){
+			document.getElementById("countdown").innerHTML = timeLeft;
+			timeLeft = timeLeft - 1;
+			if(timeLeft <= -1){
+				clearInterval(downloadTimer);
+				document.getElementById("countdown").style.color = "green";
+				document.getElementById("countdown").style.fontSize = "32px";
+				document.getElementById("countdown").innerHTML = "[Authorization Completed]";
+			}
+		}, 1000);
+	</script>
+</head>
+
+
+<html>
+	<body>
+		<div id="countdown"></div>
+		<img id="pic" src="https://i.ibb.co/0GMQ4PQ/trooper.png" class="troops"/>
+		<div id="information"><p id="data"></p></div>
+	</body>
+</html>
+
+

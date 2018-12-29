@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+	<link rel="stylesheet" type="text/css" href="styles/hungry.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		var address;
+		var current;
+		var link;
+		var list;
+		var listSize;
+		var restName;
+		var terms;
+
+		function getFuud() {
+
+			terms = document.getElementById("where").value;
+			
+			$.get("https://cors-anywhere.herokuapp.com/http://idkimhungry-env.rx2pck4hps.us-east-2.elasticbeanstalk.com/getfuud/" + terms, function(data, status){
+
+				list = JSON.parse(data);
+				listSize = list.businesses.length;
+
+				if (listSize < 1) {
+					alert("Congrats, ya broke it");
+				} else {
+					shuffle();
+				}
+			});
+		}
+
+		function shuffle() {
+			var num = Math.floor(Math.random() * Math.floor(listSize));
+			current = list.businesses[num];
+
+			link = current.url;
+			restName = current.name;
+			address = current.location.display_address;
+
+			document.getElementById("main").innerHTML = '<p id="name">' + restName + '</p>' + '<p id="street">' + address + '<p>' +
+			'<input class="display" type="button" onclick="shuffle()" value="Nah, next">' + '<input class="display" type="button" onclick="openLink()" value= "Open in Yelp">';
+		}
+
+		function openLink() {
+			window.open(link);
+		}
+	</script>
+</head>
+
+
+<html>
+	<body>
+		<div id="main">
+		<p id="title">IDK, I'm Hungry</p>
+
+		<input class="search" type="text" id="where" placeholder="enter address..">
+		<input class="search" type ="button" onclick="getFuud()" value="Search">
+			
+		<p id="location"> Surprise me, Use Location. </p>
+		<P id="error">(coming soon)</P>
+		</div>
+	</body>
+</html>
+
+
