@@ -7,6 +7,14 @@ html {
 	min-width: 100%;
 }
 
+#map {
+	height: 250px;
+    width: 75%;
+    position: absolute;
+    top: 430px;
+    left: 13%;
+}
+
 #title {
 	color: white;
 	text-align: center;
@@ -19,8 +27,10 @@ html {
 	color: white;
 	text-align: center;
 	font-size: 2em;
-	margin-top: 200px;
 	font-family: Georgia, serif;
+	position: absolute;
+    top: 160px;
+    width: 100%;
 
 }
 
@@ -28,8 +38,10 @@ html {
 	color: white;
 	text-align: center;
 	font-size: 1em;
-	margin-bottom: 20px;
 	font-family: Georgia, serif;
+	position: absolute;
+    top: 680px;
+    width: 100%;
 }
 
 #location, #error {
@@ -53,12 +65,18 @@ html {
 	width: 230px
 }
 
-.display {
+#display {
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    top: 300px;
+    width: 100%;
+}
+
+input {
+	margin: 0.25em;
 	text-align: center;
 	font-size: 1.5em;
-	margin: auto;
-	margin-top: 1em;
-	display: block;
 	color: gray;
 	background-color: white;
 	border-radius: 20px;
