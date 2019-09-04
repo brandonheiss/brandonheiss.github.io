@@ -55,11 +55,10 @@ function openLink() {
 var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          //center: {lat: -34.397, lng: 150.644},
           center: latLng,
           zoom: 13,
           mapTypeControl: false, 
-          zoomControl: false,
+          zoomControl: true,
           streetViewControl: false,
           styles: [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
