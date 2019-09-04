@@ -10,16 +10,14 @@
 
 <html>
 	<body>
-
-		<div id="main">
 			<p id="title">IDK, I'm Hungry</p>
-
-			<input class="search" type="text" id="where" placeholder="enter address..">
-			<input class="search" type ="button" onclick="getFuud()" value="Search">
-			
-			<p id="location"> Surprise me, Use Location. </p>
-			<P id="error">(coming soon)</P>
+		<div id="main">
+			<input  type="text" id="where" placeholder="enter address..">
+			<input type="range" id="rng" min="0" max="3" value="0"><span id="rngOutput"></span>
+			<input  type ="button" id="search" onclick="getFuud()" value="Search">
 		</div>
+
+		
 
 		<script src="hungry.js"></script>
 	</body>

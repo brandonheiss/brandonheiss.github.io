@@ -6,12 +6,14 @@ var list;
 var listSize;
 var map;
 var marker
+var price;
 var restName;
 var terms;
 
 function getFuud() {
     terms = document.getElementById("where").value;
-    window.location.href = "map.html?city=" + terms;
+    price = parseInt(document.getElementById("rng").value) + 1;
+    window.location.href = "map.html?city=" + terms + "&price=" + price;
 }
 
 function getParam() {
@@ -24,7 +26,8 @@ function getParam() {
 
 function setPage() {
     terms = getParam()["city"];
-    $.get("https://cors-anywhere.herokuapp.com/http://idkimhungry-env.rx2pck4hps.us-east-2.elasticbeanstalk.com/getfuud/" + terms, function(data, status){
+    price = getParam()["price"];
+    $.get("https://cors-anywhere.herokuapp.com/http://idkimhungry-env.rx2pck4hps.us-east-2.elasticbeanstalk.com/getfuud/" + terms + "&price=" + price, function(data, status){
 
         list = JSON.parse(data);
         listSize = list.businesses.length;
@@ -147,4 +150,15 @@ var map;
             map: map,
             title: ''
           });
-      }
+}
+
+var rng = document.getElementById("rng");
+var ro = document.getElementById("rngOutput");
+var myRange = ["$","$$","$$$","$$$$"];
+
+function updateRange(){
+   ro.textContent = myRange[parseInt(rng.value, 10)];
+};
+
+window.addEventListener("DOMContentLoaded", updateRange);
+rng.addEventListener("input", updateRange);
